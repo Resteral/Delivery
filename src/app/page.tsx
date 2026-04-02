@@ -42,6 +42,7 @@ export default function Home() {
                   <p className="text-[10px] font-bold text-white leading-none">42°F · Clear Skies</p>
                </div>
             </div>
+            <Link href="/events" className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-white transition-colors">Events</Link>
             <Link href="/forum" className="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors">Forum</Link>
             <Link href="/orders" className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">Orders</Link>
             <Link href="/membership" className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">Membership</Link>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { businesses } from '@/lib/data';
 import { notFound } from 'next/navigation';
+import SocialShare from '@/components/SocialShare';
 
 export async function generateStaticParams() {
   return businesses.map((bz) => ({ id: bz.id }));
@@ -97,6 +98,8 @@ export default async function StorePage({ params }: { params: Promise<{ id: stri
                      >
                         PLACE ORDER NOW
                      </Link>
+
+                     <SocialShare title={`Check out ${store.name} on TUG Oasis!`} url={`https://delivery-theta-wheat.vercel.app/stores/${store.id}`} />
                   </div>
                </div>
             </div>

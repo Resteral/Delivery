@@ -87,7 +87,7 @@ export default function Dashboard() {
               <div className="space-y-4 max-h-[300px] overflow-y-auto custom-scrollbar pr-2">
                  <div className="p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
                     <p className="text-xs font-black text-white mb-1">John D.</p>
-                    <p className="text-[11px] text-white/40 mb-4 line-clamp-1">"Hey, is the specialty sub still available for lunch? I'm in Effingham..."</p>
+                    <p className="text-[11px] text-white/40 mb-4 line-clamp-1">&quot;Hey, is the specialty sub still available for lunch? I&apos;m in Effingham...&quot;</p>
                     <div className="flex gap-2">
                        <button className="flex-1 py-2 bg-primary/20 text-primary rounded-lg text-[9px] font-bold uppercase transition-all">Reply</button>
                        <button className="flex-1 py-2 bg-secondary/20 text-secondary rounded-lg text-[9px] font-bold uppercase transition-all">Match Order</button>

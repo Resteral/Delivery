@@ -43,7 +43,7 @@ export default async function StorePage({ params }: { params: Promise<{ id: stri
             <div className="lg:col-span-2">
                <h2 className="text-3xl font-black mb-8 italic">Merchant <span className="text-primary italic">Story</span></h2>
                <p className="text-xl text-white/60 leading-[1.8] mb-12 font-medium">
-                  {store.description} Discover why {store.name} is a premier "Oasis" partner in the Lakes Region.
+                  {store.description} Discover why {store.name} is a premier &quot;Oasis&quot; partner in the Lakes Region.
                </p>
 
                <div className="space-y-12 mb-20">

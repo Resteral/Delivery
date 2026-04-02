@@ -9,7 +9,7 @@ const initialThreads = [
 ];
 
 export default function Forum() {
-  const [threads, setThreads] = useState(initialThreads);
+  const [threads] = useState(initialThreads);
   const [showNewThread, setShowNewThread] = useState(false);
 
   return (
@@ -74,7 +74,7 @@ export default function Forum() {
               <div className="space-y-6">
                  <div>
                     <label className="text-[10px] font-black uppercase tracking-widest text-white/40 block mb-2 px-1">Thread Title</label>
-                    <input className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-primary outline-none" placeholder="What's on your mind?" />
+                    <input className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-primary outline-none" placeholder="What&apos;s on your mind?" />
                  </div>
                  <div>
                     <label className="text-[10px] font-black uppercase tracking-widest text-white/40 block mb-2 px-1">Content</label>

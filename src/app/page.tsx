@@ -7,23 +7,11 @@ import { businesses } from '@/lib/data';
 const towns = ["All", "Effingham", "North Conway", "Wolfeboro"];
 
 export default function Home() {
-  const [cart, setCart] = useState<any[]>([]);
-  const [showCart, setShowCart] = useState(false);
   const [activeTown, setActiveTown] = useState("All");
-
-  const addToCart = (product: any, bizName: string) => {
-    setCart([...cart, { ...product, bizName, cartId: Math.random() }]);
-  };
-
-  const removeFromCart = (cartId: number) => {
-    setCart(cart.filter(item => item.cartId !== cartId));
-  };
 
   const filteredBusinesses = activeTown === "All" 
     ? businesses 
     : businesses.filter(b => b.town === activeTown);
-
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div className="min-h-screen bg-[#020408]">
@@ -46,10 +34,6 @@ export default function Home() {
             <Link href="/forum" className="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors">Forum</Link>
             <Link href="/orders" className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">Orders</Link>
             <Link href="/membership" className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">Membership</Link>
-            <button onClick={() => setShowCart(!showCart)} className="relative text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">
-              Cart ({cart.length})
-              {cart.length > 0 && <span className="absolute -top-2 -right-3 w-4 h-4 bg-primary text-black rounded-full text-[8px] flex items-center justify-center font-black animate-pulse">!</span>}
-            </button>
             <Link href="tel:5085070305" className="px-6 py-2.5 bg-secondary text-black rounded-full font-bold text-sm hover:opacity-90 transition-all">508.507.0305</Link>
           </nav>
         </div>
@@ -60,8 +44,8 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/10 blur-[120px] rounded-full" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="px-4 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 inline-block">TUG Oasis: Premium Local Delivery</span>
-          <h2 className="text-6xl md:text-8xl font-black text-white leading-tight tracking-[calc(-0.04em)] mb-8">Effingham's <br /><span className="text-gradient">Elite Concierge.</span></h2>
-          <p className="text-xl text-white/40 max-w-2xl mx-auto leading-relaxed mb-12 italic">"We pick up what you order. Fast, secure, and personalized delivery within a 1-hour radius."</p>
+          <h2 className="text-6xl md:text-8xl font-black text-white leading-tight tracking-[calc(-0.04em)] mb-8">Effingham&apos;s <br /><span className="text-gradient">Elite Concierge.</span></h2>
+          <p className="text-xl text-white/40 max-w-2xl mx-auto leading-relaxed mb-12 italic">&quot;We pick up what you order. Fast, secure, and personalized delivery within a 1-hour radius.&quot;</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <Link href="#directory" className="px-10 py-5 bg-primary text-black rounded-full font-black text-lg hover:scale-105 transition-transform shadow-2xl shadow-primary/20">Browse Directory</Link>
             <Link href="/membership" className="px-10 py-5 bg-white/5 text-white/80 border border-white/10 rounded-full font-black text-lg hover:bg-white/10 transition-all">Join The Oasis Members</Link>
@@ -159,51 +143,6 @@ export default function Home() {
          </div>
       </section>
 
-      {/* Cart Modal */}
-      {showCart && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
-           <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={() => setShowCart(false)} />
-           <div className="relative glass w-full max-w-lg rounded-[3rem] p-10">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-primary" />
-              <h3 className="text-3xl font-black text-white mb-8 tracking-tighter">Your Shopping Basket</h3>
-              <div className="space-y-4 mb-10 max-h-[400px] overflow-y-auto pr-4 custom-scrollbar">
-                {cart.length === 0 ? (
-                  <p className="text-white/30 text-center py-10 italic uppercase text-[10px] tracking-widest font-bold">Your Oasis basket is empty</p>
-                ) : (
-                  cart.map((item) => (
-                    <div key={item.cartId} className="flex justify-between items-center border-b border-white/5 pb-4">
-                       <div>
-                         <p className="text-xs font-bold text-white">{item.name}</p>
-                         <p className="text-[10px] text-white/30 uppercase">{item.bizName}</p>
-                       </div>
-                       <div className="flex items-center gap-6">
-                          <p className="text-sm font-black text-secondary">${item.price.toFixed(2)}</p>
-                          <button onClick={() => removeFromCart(item.cartId)} className="text-white/20 hover:text-red-500 transition-colors">✕</button>
-                       </div>
-                    </div>
-                  ))
-                )}
-              </div>
-              <div className="mb-10 px-2">
-                 <p className="text-[8px] font-black uppercase tracking-widest text-primary mb-4 ml-1">Gratuity (Sean)</p>
-                 <div className="flex gap-3">
-                    {[15, 20, 25].map(pct => (
-                      <button key={pct} className="flex-1 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black text-white/60 hover:border-primary hover:text-white-all">{pct}%</button>
-                    ))}
-                 </div>
-              </div>
-              <div className="flex justify-between items-center mb-10 px-2 pt-10 border-t border-white/5">
-                 <span className="text-white/40 uppercase text-[10px] font-black tracking-widest">Total Estimate</span>
-                 <span className="text-2xl font-black text-white">${total.toFixed(2)}</span>
-              </div>
-              <div className="space-y-4">
-                <Link href="/track" className="block w-full py-5 bg-primary text-black text-center font-black rounded-2xl hover:scale-[1.02] transition-transform uppercase text-sm tracking-widest cursor-pointer shadow-xl shadow-primary/20">Match logistics</Link>
-                <button onClick={() => setShowCart(false)} className="block w-full py-4 text-white/40 text-center text-xs font-bold uppercase transition-all hover:text-white">Continue Shopping</button>
-              </div>
-           </div>
-        </div>
-      )}
-
       {/* Footer */}
       <footer className="py-20 px-6 border-t border-white/5 bg-black/40">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
@@ -213,9 +152,9 @@ export default function Home() {
           </div>
           <p className="text-white/20 text-[10px] font-medium uppercase tracking-[0.4em]">&copy; 2026 The Urban Guide. Elite Logistics Protocol. [BUILD 1.0.9-STABLE]</p>
           <div className="flex gap-8 text-center md:text-left flex-wrap justify-center">
-            <Link href="/forum" className="text-xs font-black text-primary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Oasis Forum</Link>
+            <Link href="/events" className="text-xs font-black text-primary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Regional Events</Link>
+            <Link href="/forum" className="text-xs font-black text-white/60 hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Oasis Forum</Link>
             <Link href="/membership" className="text-xs font-bold text-secondary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Join the Oasis</Link>
-            <Link href="/driver" className="text-xs font-black text-white/40 hover:text-white transition-colors uppercase tracking-widest underline underline-offset-8">Driver Hub</Link>
           </div>
         </div>
       </footer>

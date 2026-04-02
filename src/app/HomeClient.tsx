@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { businesses } from '@/lib/data';
 import SocialFeed from '@/components/SocialFeed';
 import FeaturedAd from '@/components/FeaturedAd';
+import BusinessBoostSlot from '@/components/BusinessBoostSlot';
+import SocialLinks from '@/components/SocialLinks';
 
 const towns = ["All", "Effingham", "North Conway", "Wolfeboro"];
 
@@ -120,6 +122,7 @@ export default function HomeClient() {
                 </div>
               </div>
             ))}
+            <BusinessBoostSlot />
           </div>
         </div>
       </section>
@@ -130,6 +133,8 @@ export default function HomeClient() {
             <SocialFeed />
          </div>
       </section>
+
+      <SocialLinks />
 
       {/* How it Works / Platform Info */}
       <section className="py-24 bg-white/[0.01] border-y border-white/5">

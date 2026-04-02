@@ -2,99 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
-const businesses = [
-  {
-    id: "pnb-eats",
-    name: "PNB Eats",
-    location: "Effingham, NH",
-    town: "Effingham",
-    phone: "603-301-0113",
-    category: "Pizza & Subs",
-    description: "Breakfast, sandwiches, specialty subs, and fresh pizza.",
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=400",
-    isOpen: true,
-    products: [
-      { id: "p1", name: "Specialty Sub", price: 12.99 },
-      { id: "p2", name: "Large Pizza", price: 18.50 }
-    ]
-  },
-  {
-    id: "boyles",
-    name: "Boyle's General Store",
-    location: "Effingham Falls, NH",
-    town: "Effingham",
-    phone: "603-539-7888",
-    category: "General Store",
-    description: "Local convenience, groceries, and neighborhood essentials.",
-    image: "https://images.unsplash.com/photo-1534723452243-ec02b70498b3?auto=format&fit=crop&q=80&w=400",
-    isOpen: true,
-    products: [
-      { id: "b1", name: "Local Honey", price: 9.00 },
-      { id: "b2", name: "Fresh Produce Box", price: 25.00 }
-    ]
-  },
-  {
-    id: "muddy-moose",
-    name: "Muddy Moose Pub",
-    location: "North Conway, NH",
-    town: "North Conway",
-    phone: "603-356-3827",
-    category: "Restaurant",
-    description: "Hearty American comfort food in a rustic lodge setting.",
-    image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=400",
-    isOpen: true,
-    products: [
-      { id: "m1", name: "Moose Burger", price: 16.50 },
-      { id: "m2", name: "Lodge Ribs", price: 24.00 }
-    ]
-  },
-  {
-    id: "wolfeboro-dockside",
-    name: "Wolfeboro Dockside",
-    location: "Wolfeboro, NH",
-    town: "Wolfeboro",
-    phone: "603-569-3456",
-    category: "Seafood & Grill",
-    description: "Casual lakeside dining and famous dairy bar treats.",
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=400",
-    isOpen: false,
-    products: [
-      { id: "w1", name: "Fried Clam Strip Plate", price: 19.99 },
-      { id: "w2", name: "Double Scoop Cone", price: 6.50 }
-    ]
-  },
-  {
-    id: "barley-salt",
-    name: "Barley & Salt",
-    location: "North Conway, NH",
-    town: "North Conway",
-    phone: "603-730-5306",
-    category: "Tap House",
-    description: "Modern tap house with rotating craft beers and creative kitchen items.",
-    image: "https://images.unsplash.com/photo-1532634896-26909d0d4b89?auto=format&fit=crop&q=80&w=400",
-    isOpen: true,
-    products: [
-      { id: "bs1", name: "Artisan Flatbread", price: 14.00 },
-      { id: "bs2", name: "Local Craft 4-Pack", price: 18.00 }
-    ]
-  },
-  {
-    id: "morrisseys",
-    name: "Morrissey's Front Porch",
-    location: "Wolfeboro, NH",
-    town: "Wolfeboro",
-    phone: "603-569-3662",
-    category: "Seafood & Irish",
-    description: "Family seafood, Irish fare, and premium ice cream standards.",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=400",
-    isOpen: true,
-    products: [
-      { id: "mp1", name: "Fish and Chips", price: 18.99 },
-      { id: "mp2", name: "Irish Beef Stew", price: 16.00 }
-    ]
-  }
-];
+import { businesses } from '@/lib/data';
 
 const towns = ["All", "Effingham", "North Conway", "Wolfeboro"];
 
@@ -159,40 +67,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Merchant Updates Feed */}
-      <section className="py-20 px-6">
-         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-start">
-            <div className="md:w-1/3">
-               <h3 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-6">Town Feed</h3>
-               <h2 className="text-3xl font-black text-white mb-6 tracking-tight">Active In The <span className="italic">Neighborhood</span></h2>
-               <p className="text-sm text-white/40 mb-8 leading-relaxed">Stay updated with fresh arrivals and town-specific announcements from our partners.</p>
-            </div>
-            <div className="flex-1 space-y-6">
-               <div className="glass p-8 rounded-[2rem] border border-white/5 bg-white/[0.02]">
-                  <div className="flex items-center gap-4 mb-4">
-                     <span className="text-[10px] font-bold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase">PNB EATS</span>
-                     <span className="text-[10px] font-black text-white/20 uppercase tracking-widest">Just Now</span>
-                  </div>
-                  <p className="text-sm text-white/60 leading-relaxed font-medium">✨ Fresh batch of hand-rolled specialty subs is ready for the lunch rush! Call Sean for VIP delivery. 🥖🔥</p>
-               </div>
-               <div className="glass p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] opacity-60">
-                  <div className="flex items-center gap-4 mb-4">
-                     <span className="text-[10px] font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-full uppercase">BOYLE'S GENERAL</span>
-                     <span className="text-[10px] font-black text-white/20 uppercase tracking-widest">2 Hours Ago</span>
-                  </div>
-                  <p className="text-sm text-white/60 leading-relaxed font-medium">New arrival of local maple syrup and fresh farm eggs this morning. Come stock up your Oasis! 🥚🍁</p>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      {/* Town Filtering & Directory */}
+      {/* Town Filtering & Merchant Directory */}
       <section id="directory" className="py-24 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
              <div>
-                <h3 className="text-3xl font-black text-white mb-2">Featured Hubs</h3>
-                <p className="text-white/40 italic">Refine by neighborhood within our 1-hour coverage.</p>
+                <h3 className="text-3xl font-black text-white mb-2 underline underline-offset-8 decoration-primary/20">Local Hubs</h3>
+                <p className="text-white/40 italic">One-tap call or explore their menu in our oasis.</p>
              </div>
              <div className="flex bg-white/5 border border-white/10 p-1.5 rounded-2xl">
                 {towns.map(town => (
@@ -211,51 +92,35 @@ export default function Home() {
             {filteredBusinesses.map((biz) => (
               <div key={biz.id} className="group glass rounded-[2.5rem] p-8 hover:bg-white/[0.04] transition-all border border-white/5 hover:border-primary/20 flex flex-col md:flex-row gap-8 relative overflow-hidden">
                 {!biz.isOpen && (
-                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-20 flex items-center justify-center">
-                    <span className="px-6 py-2 bg-black text-white/60 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10 rounded-full">Currently Closed</span>
+                  <div className="absolute inset-0 bg-black/50 backdrop-blur-[4px] z-20 flex items-center justify-center">
+                    <span className="px-6 py-2 bg-black text-white/60 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10 rounded-full">Merchant Closed</span>
                   </div>
                 )}
-                <div className="w-full md:w-48 h-48 rounded-3xl overflow-hidden shrink-0 relative">
-                  <Image src={biz.image} alt={biz.name} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110" />
+                <div className="w-full md:w-56 h-56 rounded-[2.5rem] overflow-hidden shrink-0 relative transition-transform group-hover:scale-105">
+                  <Image src={biz.image} alt={biz.name} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 </div>
                 
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start mb-2">
-                       <h4 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">{biz.name}</h4>
-                       <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">{biz.category}</span>
+                       <h4 className="text-2xl font-black text-white group-hover:text-primary transition-colors">{biz.name}</h4>
                     </div>
-                    <p className="text-xs text-white/40 mb-1">{biz.location}</p>
-                    <p className="text-sm text-white/50 mb-6 line-clamp-1">{biz.description}</p>
-                    <div className="space-y-3 mb-8">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-2 ml-1">Featured: Lunch Menu</p>
-                      {biz.products.map(p => (
-                        <div key={p.id} className="flex justify-between items-center bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-primary/40 transition-all group/item">
-                           <div>
-                              <span className="text-xs font-bold text-white/90 block mb-1">{p.name}</span>
-                              <div className="flex items-center gap-2">
-                                 <span className="text-[9px] font-black text-white/10 line-through">${(p.price * 1.15).toFixed(2)}</span>
-                                 <span className="text-[9px] font-black text-secondary uppercase tracking-widest bg-secondary/10 px-2 rounded-full">15% OFF</span>
-                              </div>
-                           </div>
-                           <div className="flex items-center gap-5">
-                             <span className="text-sm text-secondary font-black">${p.price.toFixed(2)}</span>
-                             <button onClick={() => addToCart(p, biz.name)} className="px-5 py-2 bg-primary/20 text-primary rounded-xl text-[10px] font-black uppercase hover:bg-primary hover:text-black shadow-lg shadow-primary/10 transition-all">+ Cart</button>
-                           </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Seating Arrangement Hint */}
-                    <div className="pt-6 border-t border-white/5 flex justify-between items-center">
-                       <div className="flex items-center gap-3">
-                          <span className="text-sm">🪑</span>
-                          <div className="text-left">
-                             <p className="text-[8px] font-black uppercase text-white/40 tracking-widest mb-0.5 leading-none">Oasis Seating</p>
-                             <p className="text-[9px] font-black text-white/80 leading-none">Inside & Patio Available</p>
-                          </div>
-                       </div>
-                       <button className="text-[9px] font-black text-primary uppercase tracking-[0.2em] border-b border-primary/20 pb-0.5 hover:text-white transition-all">Book Zone</button>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-4">{biz.category} · {biz.town}</p>
+                    <p className="text-sm text-white/50 mb-8 line-clamp-2 leading-relaxed">{biz.description}</p>
+                    
+                    <div className="flex flex-col gap-3">
+                       <Link 
+                         href={`/stores/${biz.id}`} 
+                         className="w-full py-4 bg-white/[0.04] border border-white/10 text-center rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-white/80 hover:bg-white/10 transition-all"
+                       >
+                         View Oasis Profile
+                       </Link>
+                       <Link 
+                         href={`tel:${biz.phone.replace(/-/g, '')}`} 
+                         className="w-full py-4 bg-primary text-black text-center font-black rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-primary/10 hover:scale-[1.02] transition-transform"
+                       >
+                         CALL: {biz.phone}
+                       </Link>
                     </div>
                   </div>
                 </div>
@@ -265,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Info Section */}
+      {/* How it Works / Platform Info */}
       <section className="py-24 bg-white/[0.01] border-y border-white/5">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
@@ -317,21 +182,20 @@ export default function Home() {
                   ))
                 )}
               </div>
-              <div className="mb-10 p-6 bg-white/5 rounded-3xl border border-white/5">
-                 <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-4 ml-1">Tip Your Concierge (Sean)</p>
+              <div className="mb-10 px-2">
+                 <p className="text-[8px] font-black uppercase tracking-widest text-primary mb-4 ml-1">Gratuity (Sean)</p>
                  <div className="flex gap-3">
                     {[15, 20, 25].map(pct => (
-                      <button key={pct} className="flex-1 py-3 bg-black/40 border border-white/10 rounded-xl text-[10px] font-black text-white/60 hover:border-primary hover:text-white transition-all">{pct}%</button>
+                      <button key={pct} className="flex-1 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black text-white/60 hover:border-primary hover:text-white-all">{pct}%</button>
                     ))}
-                    <button className="flex-1 py-3 bg-black/40 border border-white/10 rounded-xl text-[10px] font-black text-white/60 hover:border-primary hover:text-white transition-all">OTHER</button>
                  </div>
               </div>
-              <div className="flex justify-between items-center mb-8 px-2">
+              <div className="flex justify-between items-center mb-10 px-2 pt-10 border-t border-white/5">
                  <span className="text-white/40 uppercase text-[10px] font-black tracking-widest">Total Estimate</span>
                  <span className="text-2xl font-black text-white">${total.toFixed(2)}</span>
               </div>
               <div className="space-y-4">
-                <Link href="/track" className="block w-full py-5 bg-primary text-black text-center font-black rounded-2xl hover:scale-[1.02] transition-transform uppercase text-sm tracking-widest cursor-pointer shadow-xl shadow-primary/20">Place Order & Track Logistics</Link>
+                <Link href="/track" className="block w-full py-5 bg-primary text-black text-center font-black rounded-2xl hover:scale-[1.02] transition-transform uppercase text-sm tracking-widest cursor-pointer shadow-xl shadow-primary/20">Match logistics</Link>
                 <button onClick={() => setShowCart(false)} className="block w-full py-4 text-white/40 text-center text-xs font-bold uppercase transition-all hover:text-white">Continue Shopping</button>
               </div>
            </div>
@@ -350,20 +214,9 @@ export default function Home() {
             <Link href="/forum" className="text-xs font-black text-primary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Oasis Forum</Link>
             <Link href="/membership" className="text-xs font-bold text-secondary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Join the Oasis</Link>
             <Link href="/driver" className="text-xs font-black text-white/40 hover:text-white transition-colors uppercase tracking-widest underline underline-offset-8">Driver Hub</Link>
-            <Link href="/login" className="text-xs font-black text-white/40 hover:text-primary transition-colors uppercase tracking-widest">Merchant Profile</Link>
-            <Link href="tel:5085070305" className="text-xs font-black text-white/40 hover:text-primary transition-colors uppercase tracking-widest">Support: 508.507.0305</Link>
           </div>
         </div>
       </footer>
-
-      {/* Floating Chat Button */}
-      <div className="fixed bottom-10 right-10 z-[100]">
-         <button className="group relative w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-2xl shadow-primary/40 hover:scale-110 active:scale-95 transition-all">
-            <div className="absolute -top-12 right-0 bg-white text-black px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl">Chat with TUG Oasis</div>
-            <span className="text-2xl">💬</span>
-            <span className="absolute top-0 right-0 w-5 h-5 bg-secondary text-black rounded-full border-4 border-[#020408] text-[8px] font-black flex items-center justify-center">1</span>
-         </button>
-      </div>
     </div>
   );
 }

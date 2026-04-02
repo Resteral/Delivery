@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { businesses } from '@/lib/data';
 import SocialFeed from '@/components/SocialFeed';
+import FeaturedAd from '@/components/FeaturedAd';
 
 const towns = ["All", "Effingham", "North Conway", "Wolfeboro"];
 
@@ -52,6 +53,12 @@ export default function HomeClient() {
             <Link href="/membership" className="px-10 py-5 bg-white/5 text-white/80 border border-white/10 rounded-full font-black text-lg hover:bg-white/10 transition-all">Join The Oasis Members</Link>
           </div>
         </div>
+      </section>
+
+      <section className="px-6 mb-32">
+         <div className="max-w-7xl mx-auto">
+            <FeaturedAd />
+         </div>
       </section>
 
       {/* Town Filtering & Merchant Directory */}

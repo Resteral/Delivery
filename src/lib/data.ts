@@ -66,5 +66,22 @@ export const businesses = [
       { id: "w2", name: "Double Scoop Cone", price: 6.50 },
       { id: "w3", name: "Haddock Basket", price: 15.00 }
     ]
+  },
+  {
+    id: "walts-carpentry",
+    name: "Walt's Carpentry",
+    location: "Effingham, NH",
+    town: "Effingham",
+    phone: "603-555-0912",
+    category: "Home Services",
+    description: "Premium custom carpentry, framing, and restorative woodcraft. Quality you can trust in the Lakes Region.",
+    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7385?auto=format&fit=crop&q=80&w=400",
+    isOpen: true,
+    seating: ["On-Site Consultations", "Workshop Visits"],
+    products: [
+      { id: "wc1", name: "Custom Built-ins", price: 1200.00 },
+      { id: "wc2", name: "Framing Consultation", price: 150.00 },
+      { id: "wc3", name: "Restoration Project Quote", price: 0.00 }
+    ]
   }
 ];

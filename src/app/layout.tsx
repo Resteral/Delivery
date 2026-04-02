@@ -16,6 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "TUG Effingham | The Urban Guide Oasis",
   description: "Elite local logistics and directory for the Lakes Region. Pickups from Wolfeboro to North Conway.",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

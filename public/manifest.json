@@ -2,6 +2,10 @@
   "name": "TUG Oasis Effingham",
   "short_name": "Oasis",
   "description": "Elite local concierge and merchant directory for the Lakes Region.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020408",
+  "theme_color": "#12a46d",
   "icons": [
     {
        "src": "/logo.png",

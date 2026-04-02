@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { businesses } from '@/lib/data';
+import SocialFeed from '@/components/SocialFeed';
 
 const towns = ["All", "Effingham", "North Conway", "Wolfeboro"];
 
-export default function Home() {
+export default function HomeClient() {
   const [activeTown, setActiveTown] = useState("All");
 
   const filteredBusinesses = activeTown === "All" 
@@ -116,6 +117,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Social Pulse Section */}
+      <section className="py-32 px-6 border-t border-white/5">
+         <div className="max-w-7xl mx-auto">
+            <SocialFeed />
+         </div>
+      </section>
+
       {/* How it Works / Platform Info */}
       <section className="py-24 bg-white/[0.01] border-y border-white/5">
          <div className="max-w-7xl mx-auto px-6">
@@ -150,7 +158,7 @@ export default function Home() {
              <Image src="/logo.png" alt="TUG Logo" width={36} height={36} className="brightness-200" />
              <span className="text-lg font-black tracking-tighter text-white">TUG OASIS</span>
           </div>
-          <p className="text-white/20 text-[10px] font-medium uppercase tracking-[0.4em]">&copy; 2026 The Urban Guide. Elite Logistics Protocol. [BUILD 1.0.9-STABLE]</p>
+          <p className="text-white/20 text-[10px] font-medium uppercase tracking-[0.4em]">&copy; 2026 The Urban Guide. Elite Logistics Protocol. [BUILD 1.0.10-STABLE]</p>
           <div className="flex gap-8 text-center md:text-left flex-wrap justify-center">
             <Link href="/events" className="text-xs font-black text-primary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Regional Events</Link>
             <Link href="/forum" className="text-xs font-black text-white/60 hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Oasis Forum</Link>

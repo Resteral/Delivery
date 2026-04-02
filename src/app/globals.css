@@ -1,9 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: var(--font-outfit), var(--font-inter), sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: 222 47% 4%;
@@ -51,7 +48,7 @@
 }
 
 * {
-  border-color: hsl(var(--border));
+  border-color: hsl(var(--border) / 0.1);
 }
 
 body {

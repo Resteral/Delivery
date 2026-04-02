@@ -8,8 +8,8 @@ export async function generateStaticParams() {
   return businesses.map((bz) => ({ id: bz.id }));
 }
 
-export default async function StorePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function StorePage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const store = businesses.find(b => b.id === id);
 
   if (!store) notFound();

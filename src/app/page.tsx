@@ -43,6 +43,7 @@ export default function Home() {
                </div>
             </div>
             <Link href="/forum" className="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors">Forum</Link>
+            <Link href="/orders" className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">Orders</Link>
             <Link href="/membership" className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">Membership</Link>
             <button onClick={() => setShowCart(!showCart)} className="relative text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors">
               Cart ({cart.length})

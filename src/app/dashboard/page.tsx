@@ -18,19 +18,25 @@ export default function Dashboard() {
            <div className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-primary/20 transition-all">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary block mb-2">Total Orders</span>
               <div className="text-5xl font-black mb-4 tracking-tighter">142</div>
-              <p className="text-xs text-white/30">+12% from last week</p>
+              <p className="text-xs text-secondary font-black tracking-widest">+12.4% <span className="text-white/20 uppercase ml-2">from last week</span></p>
            </div>
            
            <div className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-secondary/20 transition-all">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary block mb-2">Gross Revenue</span>
               <div className="text-5xl font-black mb-4 tracking-tighter">$2,840.00</div>
-              <p className="text-xs text-white/30">Lakes Region Average</p>
+              <p className="text-xs text-white/30 tracking-widest">Lakes Region Top 5%</p>
            </div>
 
-           <div className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-white/10 transition-all">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 block mb-2">Active Products</span>
-              <div className="text-5xl font-black mb-4 tracking-tighter">12</div>
-              <p className="text-xs text-white/30">TUG Partner Status</p>
+           <div className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-white/10 transition-all overflow-hidden flex flex-col justify-between">
+              <div>
+                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 block mb-2">Market Share</span>
+                 <div className="text-xl font-black mb-4 tracking-tight">Oasis Growth Trend</div>
+              </div>
+              <div className="h-10 flex items-end gap-1 px-1">
+                 {[40, 60, 50, 70, 90, 80, 100].map((h, i) => (
+                    <div key={i} className="flex-1 bg-primary/20 hover:bg-primary transition-colors rounded-t-sm" style={{ height: `${h}%` }} />
+                 ))}
+              </div>
            </div>
         </div>
 

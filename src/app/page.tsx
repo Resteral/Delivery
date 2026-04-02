@@ -211,7 +211,7 @@ export default function Home() {
              <Image src="/logo.png" alt="TUG Logo" width={36} height={36} className="brightness-200" />
              <span className="text-lg font-black tracking-tighter text-white">TUG OASIS</span>
           </div>
-          <p className="text-white/20 text-[10px] font-medium uppercase tracking-[0.4em]">&copy; 2026 The Urban Guide. Elite Logistics Protocol.</p>
+          <p className="text-white/20 text-[10px] font-medium uppercase tracking-[0.4em]">&copy; 2026 The Urban Guide. Elite Logistics Protocol. [BUILD 1.0.9-STABLE]</p>
           <div className="flex gap-8 text-center md:text-left flex-wrap justify-center">
             <Link href="/forum" className="text-xs font-black text-primary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Oasis Forum</Link>
             <Link href="/membership" className="text-xs font-bold text-secondary hover:text-white transition-colors uppercase tracking-[0.2em] underline underline-offset-8">Join the Oasis</Link>

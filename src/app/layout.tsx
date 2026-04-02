@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  weight: ["400", "700", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "TUG Effingham | The Urban Guide",
-  description: "Your premium local directory for Effingham, NH. Call and order directly from neighborhood favorites.",
+  title: "TUG Effingham | The Urban Guide Oasis",
+  description: "Elite local logistics and directory for the Lakes Region. Pickups from Wolfeboro to North Conway.",
 };
 
 export default function RootLayout({
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${outfit.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#020408] font-sans">
+         {children}
+      </body>
     </html>
   );
 }

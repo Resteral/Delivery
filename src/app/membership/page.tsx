@@ -1,6 +1,6 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
+import SocialLinks from '@/components/SocialLinks';
 
 const tiers = [
   {
@@ -78,16 +78,39 @@ export default function Membership() {
          ))}
       </div>
 
-      {/* Tip Breakdown Explanation */}
-      <section className="max-w-3xl w-full glass rounded-[2.5rem] p-12 text-center border border-white/5 mb-32">
-         <h3 className="text-2xl font-black mb-6 tracking-tight italic">Regarding <span className="text-primary italic">Concierge Gratuity</span></h3>
-         <p className="text-sm text-white/50 leading-relaxed max-w-xl mx-auto">
-            We believe in fair, high-end logistics. While base delivery fees cover gas and vehicle wear, our **Oasis Emerald Tier** effectively prepays a baseline gratuity for our driver (Sean) to ensure the elite standard of service is always inclusive.
-         </p>
+      {/* Oasis Partner Program */}
+      <section className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 mb-32 items-center">
+         <div>
+            <h3 className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4">Business Expansion</h3>
+            <h2 className="text-4xl font-black text-white mb-6 tracking-tighter italic">Oasis <span className="text-gradient">PARTNER PROGRAM</span></h2>
+            <p className="text-lg text-white/50 leading-relaxed mb-10 font-medium italic">&quot;Want your shop promoted? Boost your visibility with our professional merchant tier.&quot;</p>
+            <ul className="space-y-4 mb-10">
+               <li className="flex items-center gap-4 text-sm font-bold text-white/80">
+                  <span className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary text-[10px]">1</span>
+                  Premium Directory Boost Slot
+               </li>
+               <li className="flex items-center gap-4 text-sm font-bold text-white/80">
+                  <span className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary text-[10px]">2</span>
+                  Professional Storefront Verification
+               </li>
+               <li className="flex items-center gap-4 text-sm font-bold text-white/80">
+                  <span className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary text-[10px]">3</span>
+                  Social Media Spotlight Features
+               </li>
+            </ul>
+            <button className="px-10 py-5 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-primary transition-all">Partner Inquiry</button>
+         </div>
+         <div className="glass p-10 rounded-[3rem] border-2 border-dashed border-white/10 flex flex-col items-center justify-center text-center py-20 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
+            <span className="text-5xl mb-8 relative z-10 group-hover:scale-110 transition-transform">🏘️</span>
+            <h4 className="text-xl font-bold text-white relative z-10 mb-4 group-hover:text-primary transition-colors italic uppercase tracking-widest leading-none">Oasis Spotlight</h4>
+            <p className="text-xs text-white/30 relative z-10 italic max-w-[180px]">Secure your featured slot on the directory home page.</p>
+         </div>
       </section>
 
-      <footer className="mt-auto text-center pb-20">
-         <Link href="/" className="text-xs font-black text-white/20 hover:text-white uppercase tracking-[0.4em] transition-colors">Return to Directory</Link>
+      <SocialLinks />
+      <footer className="py-20 text-center">
+         <Link href="/" className="text-[10px] font-black text-white/20 hover:text-white uppercase tracking-[0.6em] transition-colors">Return to Merchant Directory</Link>
       </footer>
     </div>
   );
